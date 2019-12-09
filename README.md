@@ -93,6 +93,8 @@ replace __$IP$__ and __$USERNAME$__ and __$LIGHT$__
 ```curl -H 'Accept: application/json' -X PUT -d '{"on":true, "sat":254, "bri":120, "hue":1}' http://$IP$/api/$USERNAME$/lights/$LIGHT$/state```
 
 
+curl -H 'Accept: application/json' -X PUT -d '{"on":true, "sat":100, "bri":50, "hue":39}' http://192.168.1.149/api/TfJ9OWBsa9Kfx5STW1Gn56FRotKJQkNYHdKcB0Iu/lights/1/state
+
 # more documentation
 
 https://developers.meethue.com/develop/hue-api/lights-api/
