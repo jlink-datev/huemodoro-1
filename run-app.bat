@@ -1,1 +1,1 @@
-java -jar web/target/latest.jar
+java -jar web/target/web.jar
