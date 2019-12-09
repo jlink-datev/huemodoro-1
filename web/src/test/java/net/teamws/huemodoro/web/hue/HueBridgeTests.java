@@ -55,6 +55,17 @@ class HueBridgeTests {
 	}
 
 	@Test
+	void itShouldCallOrange()  {
+		@Language("json") String json = "{\n" +
+										"\"on\": true\n," +
+										"\"hue\": 5000\n" +
+										"}";
+		expectedJsonPayload(json);
+		hueBridge.lightOn(Colour.ORANGE);
+		server.verify();
+	}
+
+	@Test
 	void itShouldCallGreen() {
 		@Language("json") String json = "{\n" +
 												"\"on\": true\n," +
