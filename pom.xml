@@ -58,6 +58,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>web</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
