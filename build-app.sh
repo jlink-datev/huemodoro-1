@@ -7,5 +7,3 @@ cd ..
 mvn clean package
 # "Deploy" fuer Arme
 cp ./web/target/*.jar ./docs/releases/web.jar
-cp run-app.bat ./docs/releases
-cp run-app.sh ./docs/releases
