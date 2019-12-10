@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.*;
 public class HuemodoroApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(HuemodoroApplication.class, args);
 	}
 }
