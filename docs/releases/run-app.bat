@@ -1,1 +1,1 @@
-java -jar ./web.jar
+java -Dserver.port=%2 -jar web.jar
