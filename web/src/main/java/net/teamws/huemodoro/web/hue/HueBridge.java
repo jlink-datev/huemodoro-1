@@ -2,6 +2,7 @@ package net.teamws.huemodoro.web.hue;
 
 import java.time.*;
 
+import com.google.gson.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.web.client.*;
@@ -41,14 +42,11 @@ public class HueBridge {
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 		httpHeaders.setAccept(singletonList(MediaType.ALL));
 
+		HueBody hueBody = new HueBody();
+		hueBody.hue = colour.value();
+
 		HttpEntity<String> requestUpdate =
-				new HttpEntity<>("{"
-										 + "\"on\":true, "
-										 + "\"sat\":254, "
-										 + "\"bri\":120, "
-										 + "\"hue\":" + colour.value() + ", "
-										 + "\"effect\":\"none\""
-										 + "}", httpHeaders);
+				new HttpEntity<>(new Gson().toJson(hueBody), httpHeaders);
 
 		executePut(url(), requestUpdate);
 	}
@@ -60,7 +58,7 @@ public class HueBridge {
 		httpHeaders.setAccept(singletonList(MediaType.ALL));
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-		HttpEntity<String> requestUpdate = new HttpEntity<>("{\"on\":false}", httpHeaders);
+		HttpEntity<String> requestUpdate = new HttpEntity<>(new Gson().toJson(new HueLightsOffBody()), httpHeaders);
 
 		executePut(url(), requestUpdate);
 	}
@@ -85,18 +83,21 @@ public class HueBridge {
 					   + "/state";
 	}
 
-	private String bodyForColour(Colour colour) {
-		return "{"
-					   + "\"on\":true, "
-					   + "\"sat\":254, "
-					   + "\"bri\":120, "
-					   + "\"hue\":" + colour.value() + ", "
-					   + "\"effect\":\"none\""
-					   + "}";
-	}
-
 	void setRestTemplate(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
+	}
+
+	class HueBody {
+		public boolean on = true;
+		public int sat = 254;
+		public int bri = 120;
+		public int hue = 5000;
+		public String effect = "none";
+		public HueBody() {	}
+	}
+
+	class HueLightsOffBody {
+		public boolean on = false;
 	}
 
 }
