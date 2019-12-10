@@ -20,14 +20,14 @@ class SessionRepositoryTests {
 
 	@Test
 	void initiallySessionIsFresh() {
-		HuemodoroSession session = repository.getSession();
+		HuemodoroSessionData session = repository.getSession();
 		assertEquals(STOPPED, session.getState());
 		assertEquals(Duration.ofMinutes(25), session.getTimeLeft());
 	}
 
 	@Test
 	void startingSession() {
-		HuemodoroSession session = repository.runSession();
+		HuemodoroSessionData session = repository.runSession();
 		assertEquals(RUNNING, session.getState());
 	}
 
@@ -40,7 +40,7 @@ class SessionRepositoryTests {
 	@Test
 	void stoppingSession() {
 		repository.runSession();
-		HuemodoroSession session = repository.stopSession();
+		HuemodoroSessionData session = repository.stopSession();
 		assertEquals(STOPPED, session.getState());
 	}
 
@@ -49,7 +49,7 @@ class SessionRepositoryTests {
 		repository.runSession();
 		repository.advanceTime(Duration.ofMinutes(12));
 
-		HuemodoroSession session = repository.resetSession();
+		HuemodoroSessionData session = repository.resetSession();
 		assertEquals(STOPPED, session.getState());
 		assertEquals(Duration.ofMinutes(25), session.getTimeLeft());
 	}
@@ -59,7 +59,7 @@ class SessionRepositoryTests {
 		repository.runSession();
 		repository.advanceTime(Duration.ofHours(1));
 
-		HuemodoroSession session = repository.getSession();
+		HuemodoroSessionData session = repository.getSession();
 		assertEquals(SessionState.FINISHED, session.getState());
 		assertEquals(Duration.ZERO, session.getTimeLeft());
 	}

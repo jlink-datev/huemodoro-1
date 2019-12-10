@@ -19,24 +19,24 @@ public class InMemorySessionRepository implements SessionRepository {
 	}
 
 	@Override
-	public HuemodoroSession getSession() {
+	public HuemodoroSessionData getSession() {
 		return session;
 	}
 
 	@Override
-	public HuemodoroSession runSession() {
+	public HuemodoroSessionData runSession() {
 		session.run();
 		return session;
 	}
 
 	@Override
-	public HuemodoroSession stopSession() {
+	public HuemodoroSessionData stopSession() {
 		session.stop();
 		return session;
 	}
 
 	@Override
-	public HuemodoroSession resetSession() {
+	public HuemodoroSessionData resetSession() {
 		session.reset();
 		return session;
 	}

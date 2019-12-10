@@ -5,13 +5,13 @@ import java.time.*;
 import net.teamws.huemodoro.domain.*;
 
 public interface SessionRepository {
-	HuemodoroSession getSession();
+	HuemodoroSessionData getSession();
 
-	HuemodoroSession runSession();
+	HuemodoroSessionData runSession();
 
-	HuemodoroSession stopSession();
+	HuemodoroSessionData stopSession();
 
-	HuemodoroSession resetSession();
+	HuemodoroSessionData resetSession();
 
 	void advanceTime(Duration advanceBy);
 }
