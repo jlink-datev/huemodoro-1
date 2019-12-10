@@ -12,13 +12,21 @@ You need Java 1.8 JRE to run the app
     - [Unix/Linux](./releases/run-app.sh)
     - [Windows](./releases/run-app.bat)
 
+On Unix/Linux, make the script executable with `chmod +x ./run-app.sh`
+ 
 Open shell / cmd:
 ```
 > cd [DOWNLOAD-FOLDER]
-> ./run-app
+> ./run-app -p=<custom port>
 ```
 
-<!-- DOWNLOAD:
-- Dateien ablegen in releases
-- Beschreibung inbetriebnahme
--->
+to configure hue parameters, create a file *application.properties*
+
+and paste the following:
+
+```
+hue.host=<hue bridge ip address>
+hue.client=<username form hue bridge>
+hue.lamp=1
+server.port=${portx:8082}
+```
