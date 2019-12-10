@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backendBaseUrl: 'http://localhost:8080/api',
+  backendBaseUrl: '/api',
   httpTimeout: 60000
 };

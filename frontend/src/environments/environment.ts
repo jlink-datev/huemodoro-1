@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  backendBaseUrl: 'http://localhost:8080/api',
+  backendBaseUrl: '/api',
   httpTimeout: 60000,
 };
+
 
 /*
  * In development mode, to ignore zone related error stack frames such as

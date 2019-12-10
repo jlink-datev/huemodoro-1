@@ -21,7 +21,6 @@ export class BackendService implements OnDestroy {
   readonly sessionObservable: Observable<Session> = this.sessionSource.asObservable();
   private sessionPolling: Subscription;
 
-
   constructor(private http: HttpClient) {
   }
 
