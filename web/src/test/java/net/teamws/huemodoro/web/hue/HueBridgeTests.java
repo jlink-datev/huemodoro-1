@@ -13,14 +13,16 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 class HueBridgeTests {
 
+	private static final String HOST_IP = "18.194.37.236";
+	private static final String USERNAME = "3O2Ce9zBt9ed7Ht9kdvAlYVbLr7ycmVtTOc6FICU";
 	private HueBridge hueBridge;
 	private MockRestServiceServer server;
 
 	@BeforeEach
 	void setupServerMock() {
 		HueConfiguration hueConfiguration = new HueConfiguration();
-		hueConfiguration.setHost("18.194.37.236");
-		hueConfiguration.setClient("3O2Ce9zBt9ed7Ht9kdvAlYVbLr7ycmVtTOc6FICU");
+		hueConfiguration.setHost(HOST_IP);
+		hueConfiguration.setClient(USERNAME);
 		hueBridge = new HueBridge(hueConfiguration);
 
 		RestTemplate restTemplate = new RestTemplate();
