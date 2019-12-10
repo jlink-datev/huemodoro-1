@@ -5,7 +5,6 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.*;
 
-import net.teamws.huemodoro.domain.*;
 import net.teamws.huemodoro.web.repository.*;
 
 @RestController
@@ -23,29 +22,25 @@ public class SessionController {
 	@RequestMapping(path = "{id}", method = RequestMethod.GET)
 	public SessionResponse getSession(@PathVariable String id) {
 		ensureIdIs1(id);
-		HuemodoroSession session = repository.getSession();
-		return new SessionResponse(session);
+		return new SessionResponse(repository.getSession());
 	}
 
 	@RequestMapping(path = "{id}/run", method = RequestMethod.PUT)
 	public SessionResponse runSession(@PathVariable String id) {
 		ensureIdIs1(id);
-		HuemodoroSession session = repository.runSession();
-		return new SessionResponse(session);
+		return new SessionResponse(repository.runSession());
 	}
 
 	@RequestMapping(path = "{id}/stop", method = RequestMethod.PUT)
 	public SessionResponse stopSession(@PathVariable String id) {
 		ensureIdIs1(id);
-		HuemodoroSession session = repository.stopSession();
-		return new SessionResponse(session);
+		return new SessionResponse(repository.stopSession());
 	}
 
 	@RequestMapping(path = "{id}/reset", method = RequestMethod.PUT)
 	public SessionResponse resetSession(@PathVariable String id) {
 		ensureIdIs1(id);
-		HuemodoroSession session = repository.resetSession();
-		return new SessionResponse(session);
+		return new SessionResponse(repository.resetSession());
 	}
 
 	private void ensureIdIs1(@PathVariable String id) {

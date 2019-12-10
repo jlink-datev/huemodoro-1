@@ -3,7 +3,7 @@ package net.teamws.huemodoro.domain;
 import java.time.*;
 import java.util.*;
 
-public class HuemodoroSession {
+public class HuemodoroSession implements HuemodoroSessionData {
 
 	private static final SessionState INITIAL_STATE = SessionState.STOPPED;
 	private static final Duration DEFAULT_DURATION = Duration.ofMinutes(25);
@@ -13,6 +13,7 @@ public class HuemodoroSession {
 
 	private final List<SessionStateObserver> stateObservers = new ArrayList<>();
 
+	@Override
 	public Duration getTimeLeft() {
 		return timeLeft;
 	}
@@ -35,6 +36,7 @@ public class HuemodoroSession {
 		timeLeft = DEFAULT_DURATION;
 	}
 
+	@Override
 	public SessionState getState() {
 		return state;
 	}

@@ -10,7 +10,7 @@ public class SessionResponse {
 
 	private final Duration timeLeft;
 
-	public SessionResponse(HuemodoroSession session) {
+	public SessionResponse(HuemodoroSessionData session) {
 		this.state = session.getState();
 		this.timeLeft = session.getTimeLeft();
 	}
