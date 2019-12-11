@@ -20,8 +20,6 @@ The current session state is signalled via a colorful frontend and a connected h
 Sessions can be started, paused and resetted. 
 
 
-Requirements Overview {#_requirements_overview}
----------------------
 
 
 Stakeholders {#_stakeholders}
@@ -32,9 +30,6 @@ Stakeholders {#_stakeholders}
 | Product Owner | 
 | CEO         |
 
-
-Architecture Constraints {#section-architecture-constraints}
-========================
 
 System Scope and Context {#section-system-scope-and-context}
 ========================
@@ -47,26 +42,6 @@ Business Context {#_business_context}
 Hans uses huemodoro via a web-frontend. 
 The lightbulb is connected via huebridge -- an external component.
 
-Technical Context {#_technical_context}
------------------
-
-
-## Technical interfaces
-
-Backend:
-
- 
-
-Frontend interacts with the session through the ` SessionRepository` interface.
-(run, stop, reset, reload)
-
-
-
-
-
-
-Solution Strategy {#section-solution-strategy}
-=================
 
 Building Block View {#section-building-block-view}
 ===================
@@ -93,10 +68,16 @@ This way the domain can be developed independently from the infrastructure parts
 For architectural details on Angular frontend:
 `npm run compodoc`
 
+
+<!-- List of classes in packages -->
+
 ### Important Interfaces
 
-The web component uses huebridge.
 
+Frontend interacts with the backend session through the ` SessionRepository` interface.
+It supports (running, stopping , resetting, reloading, advancing)
+
+<!-- TODO other interfaces -->
 
 Deployment View {#section-deployment-view}
 ===============
@@ -105,49 +86,3 @@ Deployment View {#section-deployment-view}
 
 Huemodoro is deployed as a single jar file.
 Huebridge must be reachable via configured ip-address.
-
-Cross-cutting Concepts {#section-concepts}
-======================
-
-*\<Concept 1\>* {#__emphasis_concept_1_emphasis}
----------------
-
-*\<explanation\>*
-
-*\<Concept 2\>* {#__emphasis_concept_2_emphasis}
----------------
-
-*\<explanation\>*
-
-...
-
-*\<Concept n\>* {#__emphasis_concept_n_emphasis}
----------------
-
-*\<explanation\>*
-
-Design Decisions {#section-design-decisions}
-================
-
-Quality Requirements {#section-quality-scenarios}
-====================
-
-Quality Tree {#_quality_tree}
-------------
-
-Quality Scenarios {#_quality_scenarios}
------------------
-
-Risks and Technical Debts {#section-technical-risks}
-=========================
-
-Glossary {#section-glossary}
-========
-
-+-----------------------------------+-----------------------------------+
-| Term                              | Definition                        |
-+===================================+===================================+
-| \<Term-1\>                        | \<definition-1\>                  |
-+-----------------------------------+-----------------------------------+
-| \<Term-2\>                        | \<definition-2\>                  |
-+-----------------------------------+-----------------------------------+
