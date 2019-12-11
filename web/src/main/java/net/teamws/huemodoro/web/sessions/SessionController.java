@@ -11,8 +11,7 @@ import net.teamws.huemodoro.web.repository.*;
 @RequestMapping(path = SessionController.SESSIONS_PATH)
 public class SessionController {
 
-	@Value("${sessionpath:/api/sessions/}")
-	public static String SESSIONS_PATH;
+	public static final String SESSIONS_PATH = "/api/sessions/";
 
 	private SessionRepository repository;
 
