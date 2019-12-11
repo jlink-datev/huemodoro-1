@@ -26,13 +26,16 @@ You need Java 1.8 JRE to run the app
         Open cmd 
     ```
     > cd [DOWNLOAD-FOLDER]
-    > ./run-app.bat -p <custom port>
+    > run-app.bat -p <custom port>
     ```
 To configure hue parameters, create a file *application.properties* 
 in your [DOWNLOAD-FOLDER] with the following content:
 
 ```
 hue.host=<hue bridge ip address>
-hue.client=<username form hue bridge>
+hue.client=<username from hue bridge>
 hue.lamp=1
+
+# custom duration, defaults to 10
+# huemodoro.durationInMinutes=25
 ```

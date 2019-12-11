@@ -65,6 +65,20 @@ npm test
 ./run-app.sh
 ```
 
+### Deployment
+
+Updated Documentation for users? --> docs/README.md
+
+```
+./build-app.sh
+
+git add docs/releases/web.jar
+
+git commit -m 'Deploy new version X.X.X'
+
+git push
+```
+
 
 # philips hue documentation
 
