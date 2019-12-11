@@ -31,6 +31,12 @@ public class SessionController {
 		return new SessionResponse(repository.runSession());
 	}
 
+	@RequestMapping(path = "{id}/reload", method = RequestMethod.PUT)
+	public SessionResponse reloadSession(@PathVariable String id) {
+		ensureIdIs1(id);
+		return new SessionResponse(repository.reloadSession());
+	}
+
 	@RequestMapping(path = "{id}/stop", method = RequestMethod.PUT)
 	public SessionResponse stopSession(@PathVariable String id) {
 		ensureIdIs1(id);

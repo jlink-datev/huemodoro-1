@@ -13,5 +13,7 @@ public interface SessionRepository {
 
 	HuemodoroSessionData resetSession();
 
+	HuemodoroSessionData reloadSession();
+
 	void advanceTime(Duration advanceBy);
 }

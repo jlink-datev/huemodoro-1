@@ -24,6 +24,7 @@ export class SessionComponent implements OnInit, OnDestroy {
       this.sessionId = sessionId;
 
       this.backendService.pollSession(sessionId);
+      this.backendService.reloadSession(sessionId);
     });
   }
 

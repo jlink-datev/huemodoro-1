@@ -70,6 +70,48 @@ class SessionControllerTests {
 	}
 
 	@Test
+	void reloadSessionWhenRunning() throws Exception {
+		HuemodoroSession session = new HuemodoroSession(25);
+		session.run();
+		session.reload();
+
+		when(sessionRepository.runSession()).thenReturn(session);
+		when(sessionRepository.reloadSession()).thenReturn(session);
+
+		mockMvc.perform(put(SESSIONS_PATH + "{id}/run", "1"))
+								  .andExpect(status().isOk())
+								  .andReturn();
+
+		MvcResult result = mockMvc.perform(put(SESSIONS_PATH + "{id}/reload", "1"))
+								  .andExpect(status().isOk())
+								  .andReturn();
+
+		Map jsonResponse = responseAsMap(result);
+		assertEquals(RUNNING.name(), jsonResponse.get("state"));
+	}
+
+	@Test
+	void reloadSessionWhenStopped() throws Exception {
+		HuemodoroSession session = new HuemodoroSession(25);
+		session.stop();
+		session.reload();
+
+		when(sessionRepository.stopSession()).thenReturn(session);
+		when(sessionRepository.reloadSession()).thenReturn(session);
+
+		mockMvc.perform(put(SESSIONS_PATH + "{id}/stop", "1"))
+			   .andExpect(status().isOk())
+			   .andReturn();
+
+		MvcResult result = mockMvc.perform(put(SESSIONS_PATH + "{id}/reload", "1"))
+								  .andExpect(status().isOk())
+								  .andReturn();
+
+		Map jsonResponse = responseAsMap(result);
+		assertEquals(STOPPED.name(), jsonResponse.get("state"));
+	}
+
+	@Test
 	void stopSession() throws Exception {
 		HuemodoroSession session = new HuemodoroSession(25);
 		session.stop();

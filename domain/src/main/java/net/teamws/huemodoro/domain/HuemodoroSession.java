@@ -60,6 +60,10 @@ public class HuemodoroSession implements HuemodoroSessionData {
 		stateObservers.remove(stateObserver);
 	}
 
+	public void reload() {
+		changeState(this.state);
+	}
+
 	private void changeState(SessionState newState) {
 		SessionState oldState = this.state;
 		this.state = newState;

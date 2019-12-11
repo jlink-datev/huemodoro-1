@@ -59,6 +59,13 @@ export class BackendService implements OnDestroy {
       .subscribe(this.doNothingButTriggerSubscription);
   }
 
+  reloadSession(sessionId: string): void {
+    const url = `${environment.backendBaseUrl}/sessions/${sessionId}/reload`;
+    this.http.put<Session>(url, null)
+      .pipe(catchError(this.handleError), map(mapToSession))
+      .subscribe(this.doNothingButTriggerSubscription);
+  }
+
   resetSession(sessionId: string): void {
     const url = `${environment.backendBaseUrl}/sessions/${sessionId}/reset`;
     this.http.put<Session>(url, null)

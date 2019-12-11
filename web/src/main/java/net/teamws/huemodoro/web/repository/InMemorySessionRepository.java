@@ -45,6 +45,12 @@ public class InMemorySessionRepository implements SessionRepository {
 	}
 
 	@Override
+	public HuemodoroSessionData reloadSession() {
+		session.reload();
+		return session;
+	}
+
+	@Override
 	public void advanceTime(Duration advanceBy) {
 		session.advanceTime(advanceBy);
 	}
