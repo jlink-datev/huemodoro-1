@@ -1,3 +1,8 @@
+# Huemodoro-1
+
+[Architecture Overview](docs/arch-overview.md)
+
+
 ## Installation
 
 ### Intelli J
