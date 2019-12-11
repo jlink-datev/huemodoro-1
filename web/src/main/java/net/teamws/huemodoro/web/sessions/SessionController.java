@@ -19,31 +19,31 @@ public class SessionController {
 		this.repository = repository;
 	}
 
-	@RequestMapping(path = "{id}", method = RequestMethod.GET)
+	@GetMapping(path = "{id}")
 	public SessionResponse getSession(@PathVariable String id) {
 		ensureIdIs1(id);
 		return new SessionResponse(repository.getSession());
 	}
 
-	@RequestMapping(path = "{id}/run", method = RequestMethod.PUT)
+	@PutMapping(path = "{id}/run")
 	public SessionResponse runSession(@PathVariable String id) {
 		ensureIdIs1(id);
 		return new SessionResponse(repository.runSession());
 	}
 
-	@RequestMapping(path = "{id}/reload", method = RequestMethod.PUT)
+	@PutMapping(path = "{id}/reload")
 	public SessionResponse reloadSession(@PathVariable String id) {
 		ensureIdIs1(id);
 		return new SessionResponse(repository.reloadSession());
 	}
 
-	@RequestMapping(path = "{id}/stop", method = RequestMethod.PUT)
+	@PutMapping(path = "{id}/stop")
 	public SessionResponse stopSession(@PathVariable String id) {
 		ensureIdIs1(id);
 		return new SessionResponse(repository.stopSession());
 	}
 
-	@RequestMapping(path = "{id}/reset", method = RequestMethod.PUT)
+	@PutMapping(path = "{id}/reset")
 	public SessionResponse resetSession(@PathVariable String id) {
 		ensureIdIs1(id);
 		return new SessionResponse(repository.resetSession());
