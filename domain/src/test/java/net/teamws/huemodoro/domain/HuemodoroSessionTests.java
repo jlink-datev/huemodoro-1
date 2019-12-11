@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HuemodoroSessionTests {
 
-	HuemodoroSession session;
+	private HuemodoroSession session;
 
 	@BeforeEach
 	void initSession() {
@@ -104,10 +104,7 @@ class HuemodoroSessionTests {
 
 		@Test
 		void withMoreThanOneObserver() {
-			SessionState[] states = new SessionState[2];
 			SessionStateObserver second = (oldState2, newState2) -> {
-				states[0] = oldState2;
-				states[1] = newState2;
 			};
 			session.addStateObserver(second);
 			session.run();

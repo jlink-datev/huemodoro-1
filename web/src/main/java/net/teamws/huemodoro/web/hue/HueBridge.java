@@ -87,16 +87,15 @@ public class HueBridge {
 		this.restTemplate = restTemplate;
 	}
 
-	class HueBody {
+	static class HueBody {
 		public boolean on = true;
 		public int sat = 254;
 		public int bri = 120;
 		public int hue = 5000;
 		public String effect = "none";
-		public HueBody() {	}
 	}
 
-	class HueLightsOffBody {
+	static class HueLightsOffBody {
 		public boolean on = false;
 	}
 
