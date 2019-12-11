@@ -6,12 +6,15 @@ import java.util.*;
 public class HuemodoroSession implements HuemodoroSessionData {
 
 	private static final SessionState INITIAL_STATE = SessionState.STOPPED;
-	private static final Duration DEFAULT_DURATION = Duration.ofMinutes(25);
-
-	private Duration timeLeft = DEFAULT_DURATION;
+	private final Duration duration;
+	private final List<SessionStateObserver> stateObservers = new ArrayList<>();
+	private Duration timeLeft;
 	private SessionState state = INITIAL_STATE;
 
-	private final List<SessionStateObserver> stateObservers = new ArrayList<>();
+	public HuemodoroSession(int minutes) {
+		duration = Duration.ofMinutes(minutes);
+		timeLeft = duration;
+	}
 
 	@Override
 	public Duration getTimeLeft() {
@@ -33,7 +36,7 @@ public class HuemodoroSession implements HuemodoroSessionData {
 
 	public void reset() {
 		changeState(INITIAL_STATE);
-		timeLeft = DEFAULT_DURATION;
+		timeLeft = duration;
 	}
 
 	@Override

@@ -12,7 +12,7 @@ class HuemodoroSessionTests {
 
 	@BeforeEach
 	void initSession() {
-		session = new HuemodoroSession();
+		session = new HuemodoroSession(25);
 	}
 
 	@Nested
@@ -26,6 +26,11 @@ class HuemodoroSessionTests {
 		@Test
 		void timeLeftIs25Minutes() {
 			assertEquals(Duration.ofMinutes(25), session.getTimeLeft());
+		}
+
+		@Test
+		void testWithDifferentDuration() {
+			assertEquals(Duration.ofMinutes(10), new HuemodoroSession(10).getTimeLeft());
 		}
 
 	}

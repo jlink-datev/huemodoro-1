@@ -41,7 +41,7 @@ class SessionControllerTests {
 
 	@Test
 	void getSession() throws Exception {
-		HuemodoroSession session = new HuemodoroSession();
+		HuemodoroSession session = new HuemodoroSession(25);
 		when(sessionRepository.getSession()).thenReturn(session);
 
 		MvcResult result = mockMvc.perform(get(SESSIONS_PATH + "{id}", "1"))
@@ -56,7 +56,7 @@ class SessionControllerTests {
 
 	@Test
 	void runSession() throws Exception {
-		HuemodoroSession session = new HuemodoroSession();
+		HuemodoroSession session = new HuemodoroSession(25);
 		session.run();
 
 		when(sessionRepository.runSession()).thenReturn(session);
@@ -71,7 +71,7 @@ class SessionControllerTests {
 
 	@Test
 	void stopSession() throws Exception {
-		HuemodoroSession session = new HuemodoroSession();
+		HuemodoroSession session = new HuemodoroSession(25);
 		session.stop();
 
 		when(sessionRepository.stopSession()).thenReturn(session);
@@ -86,7 +86,7 @@ class SessionControllerTests {
 
 	@Test
 	void resetSession() throws Exception {
-		HuemodoroSession session = new HuemodoroSession();
+		HuemodoroSession session = new HuemodoroSession(25);
 		session.stop();
 
 		when(sessionRepository.resetSession()).thenReturn(session);

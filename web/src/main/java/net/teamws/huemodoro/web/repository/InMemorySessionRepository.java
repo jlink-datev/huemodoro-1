@@ -13,8 +13,11 @@ public class InMemorySessionRepository implements SessionRepository {
 
 	private final HuemodoroSession session;
 
-	public InMemorySessionRepository(@Autowired HueService hueService) {
-		session = new HuemodoroSession();
+	public InMemorySessionRepository(
+			@Autowired HueService hueService,
+			@Value("${huemodoro.durationInMinutes:10}") int durationInMinutes
+	) {
+		session = new HuemodoroSession(durationInMinutes);
 		session.addStateObserver(hueService);
 	}
 

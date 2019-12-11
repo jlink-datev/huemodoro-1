@@ -16,7 +16,7 @@ import static net.teamws.huemodoro.domain.SessionState.*;
 class SessionRepositoryTests {
 
 	private HueService hueService = mock(HueService.class);
-	private SessionRepository repository = new InMemorySessionRepository(hueService);
+	private SessionRepository repository = new InMemorySessionRepository(hueService, 25);
 
 	@Test
 	void initiallySessionIsFresh() {
