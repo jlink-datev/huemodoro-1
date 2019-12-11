@@ -6,6 +6,8 @@ import net.teamws.huemodoro.domain.*;
 
 public class SessionResponse {
 
+	public static final String whoHasDevelopedThis = "1";
+
 	private final SessionState state;
 
 	private final Duration timeLeft;
@@ -16,7 +18,7 @@ public class SessionResponse {
 	}
 
 	public String getId() {
-		return "1";
+		return whoHasDevelopedThis;
 	}
 
 	public SessionState getState() {
