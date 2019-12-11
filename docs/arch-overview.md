@@ -65,136 +65,37 @@ Building Block View {#section-building-block-view}
 Whitebox Overall System {#_whitebox_overall_system}
 -----------------------
 
-***\<Overview Diagram\>***
+![](dingsda.png)
 
-Motivation
 
-:   *\<text explanation\>*
+### Motivation
 
-Contained Building Blocks
+Overall arch follows a ports and adapters pattern.
+This way the domain can be developed independently from the infrastructure parts.
 
-:   *\<Description of contained building block (black boxes)\>*
+### Contained Building Blocks
 
-Important Interfaces
+*Domain* contains business logic.
 
-:   *\<Description of important interfaces\>*
+*Web* encapsulates tech infrastructure for backend.
 
-### \<Name black box 1\> {#__name_black_box_1}
+*Frontend* provides a browser ui.
 
-*\<Purpose/Responsibility\>*
+For architectural details on Angular frontend:
+`npm run compodoc`
 
-*\<Interface(s)\>*
+### Important Interfaces
 
-*\<(Optional) Quality/Performance Characteristics\>*
+The web component uses huebridge.
 
-*\<(Optional) Directory/File Location\>*
-
-*\<(Optional) Fulfilled Requirements\>*
-
-*\<(optional) Open Issues/Problems/Risks\>*
-
-### \<Name black box 2\> {#__name_black_box_2}
-
-*\<black box template\>*
-
-### \<Name black box n\> {#__name_black_box_n}
-
-*\<black box template\>*
-
-### \<Name interface 1\> {#__name_interface_1}
-
-...
-
-### \<Name interface m\> {#__name_interface_m}
-
-Level 2 {#_level_2}
--------
-
-### White Box *\<building block 1\>* {#_white_box_emphasis_building_block_1_emphasis}
-
-*\<white box template\>*
-
-### White Box *\<building block 2\>* {#_white_box_emphasis_building_block_2_emphasis}
-
-*\<white box template\>*
-
-...
-
-### White Box *\<building block m\>* {#_white_box_emphasis_building_block_m_emphasis}
-
-*\<white box template\>*
-
-Level 3 {#_level_3}
--------
-
-### White Box \<\_building block x.1\_\> {#_white_box_building_block_x_1}
-
-*\<white box template\>*
-
-### White Box \<\_building block x.2\_\> {#_white_box_building_block_x_2}
-
-*\<white box template\>*
-
-### White Box \<\_building block y.1\_\> {#_white_box_building_block_y_1}
-
-*\<white box template\>*
-
-Runtime View {#section-runtime-view}
-============
-
-\<Runtime Scenario 1\> {#__runtime_scenario_1}
-----------------------
-
--   *\<insert runtime diagram or textual description of the scenario\>*
-
--   *\<insert description of the notable aspects of the interactions
-    between the building block instances depicted in this diagram.\>*
-
-\<Runtime Scenario 2\> {#__runtime_scenario_2}
-----------------------
-
-... {#_}
----
-
-\<Runtime Scenario n\> {#__runtime_scenario_n}
-----------------------
 
 Deployment View {#section-deployment-view}
 ===============
 
-Infrastructure Level 1 {#_infrastructure_level_1}
-----------------------
+![](deployment.png)
 
-***\<Overview Diagram\>***
-
-Motivation
-
-:   *\<explanation in text form\>*
-
-Quality and/or Performance Features
-
-:   *\<explanation in text form\>*
-
-Mapping of Building Blocks to Infrastructure
-
-:   *\<description of the mapping\>*
-
-Infrastructure Level 2 {#_infrastructure_level_2}
-----------------------
-
-### *\<Infrastructure Element 1\>* {#__emphasis_infrastructure_element_1_emphasis}
-
-*\<diagram + explanation\>*
-
-### *\<Infrastructure Element 2\>* {#__emphasis_infrastructure_element_2_emphasis}
-
-*\<diagram + explanation\>*
-
-...
-
-### *\<Infrastructure Element n\>* {#__emphasis_infrastructure_element_n_emphasis}
-
-*\<diagram + explanation\>*
+Huemodoro is deployed as a single jar file.
+Huebridge must be reachable via configured ip-address.
 
 Cross-cutting Concepts {#section-concepts}
 ======================
