@@ -5,13 +5,13 @@ public enum Colour {
 	ORANGE(5000),
 	GREEN(23000);
 
-	private int colour;
+	private int colorCode;
 
-	Colour(int colour) {
-		this.colour = colour;
+	Colour(int colorCode) {
+		this.colorCode = colorCode;
 	}
 
 	int value() {
-		return colour;
+		return colorCode;
 	}
 }
