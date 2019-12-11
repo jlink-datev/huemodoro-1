@@ -11,6 +11,7 @@ import org.springframework.stereotype.*;
 import org.springframework.web.client.*;
 
 import net.teamws.huemodoro.web.*;
+import net.teamws.huemodoro.web.hue.state.*;
 
 import static java.util.Collections.*;
 
@@ -42,8 +43,8 @@ public class HueBridge {
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 		httpHeaders.setAccept(singletonList(MediaType.ALL));
 
-		HueBody hueBody = new HueBody();
-		hueBody.hue = colour.value();
+		HueBodyColorChange hueBody = new HueBodyColorChange();
+		hueBody.setHue(colour.value());
 
 		HttpEntity<String> requestUpdate =
 				new HttpEntity<>(new Gson().toJson(hueBody), httpHeaders);
@@ -58,7 +59,7 @@ public class HueBridge {
 		httpHeaders.setAccept(singletonList(MediaType.ALL));
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-		HttpEntity<String> requestUpdate = new HttpEntity<>(new Gson().toJson(new HueLightsOffBody()), httpHeaders);
+		HttpEntity<String> requestUpdate = new HttpEntity<>(new Gson().toJson(new HueBodyOff()), httpHeaders);
 
 		executePut(url(), requestUpdate);
 	}
@@ -87,16 +88,6 @@ public class HueBridge {
 		this.restTemplate = restTemplate;
 	}
 
-	static class HueBody {
-		private boolean on = true;
-		private int sat = 254;
-		private int bri = 120;
-		private int hue = 5000;
-		private String effect = "none";
-	}
 
-	static class HueLightsOffBody {
-		private boolean on = false;
-	}
 
 }
