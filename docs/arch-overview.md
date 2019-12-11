@@ -50,11 +50,20 @@ The lightbulb is connected via huebridge -- an external component.
 Technical Context {#_technical_context}
 -----------------
 
-**\<Diagram or Table\>**
 
-**\<optionally: Explanation of technical interfaces\>**
+## Technical interfaces
 
-**\<Mapping Input/Output to Channels\>**
+Backend:
+
+ 
+
+Frontend interacts with the session through the ` SessionRepository` interface.
+(run, stop, reset, reload)
+
+
+
+
+
 
 Solution Strategy {#section-solution-strategy}
 =================
