@@ -5,13 +5,13 @@
   </div>
 
   <div>
-    <button [disabled]="disableRunButton()" (click)="runSession()" id="run-button">
+    <button [disabled]="disableRunButton()" (click)="runSession()" id="run-button" title="Starte Huemodoro">
       Run
     </button>
-    <button [disabled]="disableStopButton()" (click)="stopSession()">
+    <button [disabled]="disableStopButton()" (click)="stopSession()" title="Pausiere Huemodoro">
       Stop
     </button>
-    <button (click)="resetSession()">
+    <button (click)="resetSession()" title="Stoppe und setze Huemodoro zurück">
       Reset
     </button>
   </div>
